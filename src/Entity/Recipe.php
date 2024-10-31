@@ -29,7 +29,7 @@ class Recipe
     #[Assert\NotBlank(message: 'La date ne peut pas être vide.')]
     #[Assert\GreaterThanOrEqual(
         value: 'today', 
-        message: 'La date doit être tres supérieure ou égale à la date actuelle.'
+        message: 'La date doit être supérieure ou égale à la date actuelle.'
     )]
     private ?\DateTimeImmutable $createdAt = null;
 
