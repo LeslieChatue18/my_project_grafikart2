@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search Controller!{% endblock %}
+
+{% block body %}
+{% include "home_recipe/template.html.twig" %}
+{% if search_recipe %}
+<p>Recette(s) trouvée(s) :</p>
+<ul>
+{% for search_recipes in search_recipe %}
+<li>  <ol><strong>{{ search_recipes.title }}</strong></ol></li>
+        {%endfor%}
+</ul>
+    {% else %}
+        <p>Aucune recette trouvée pour "{{ app.request.query.get('title') }}"</p>
+    {% endif %}
+{% endblock %}

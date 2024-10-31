@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+{% include "home_recipe/template.html.twig" %}
+
+<div class="text-center"><h2>Bienvenue dans notre application  <strong>COOKME</strong></h2></div></br></br>
+<div class="container-sm">Ici vous avez la possibilité de consulter/visualiser différentes récettes.</br>
+Vous pouvez également en rajouter en cliquant sur le bouton <strong>Ajouter</strong> et/ou vous pouvez modifier une recette en cliquant sur le bouton
+<strong>Modifier</strong> et enfin vous pouvez supprimer une recette comme bon vous semble en cliquant sur le bouton <strong>Supprimer</strong>.</br></br> </div>
+
+<div class="container-lg">
+
+<table class="table table-striped">
+    <tr border="1"><th>Noms des recettes</th><th>Slug associé </th><th> Consulter </th><th> Modifier </th><th> Supprimer </th></tr>
+{% for recipe in recipes%}
+    
+    <tr><td>{{ recipe.title}}</td><td border="1">{{ recipe.slug}}</td>
+        <td><a href="{{ url('recipes_une.show' , {'id':recipe.id})}}"><button type="button" class="btn btn-success">Consulter</button></a></td>
+        <td><a href="{{ url('formRecette' , {'id':recipe.id})}}"><button type="button" class="btn btn-warning">Modifier</button></a></td>
+        <td><form action="{{ url('delete',{'id':recipe.id})}}" method="post" ><input type="hidden" name="_method" value="DELETE"><button type="submit" class="btn btn-danger">Supprimer</button></form></a></td>
+    </tr>
+
+    {% endfor%}
+</table></br></br>
+
+<div class="text-center"><a href="{{ url('addRecipe')}}"><button type="button" class="btn btn-primary">Enregistrer une nouvelle recette</button></a></div>
+
+
+</div>
+
+{% endblock %}

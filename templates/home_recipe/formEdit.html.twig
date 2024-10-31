@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title%} Modifications - Formulaires {% endblock%}
+
+{% block body%}
+{% include 'home_recipe/template.html.twig' %}
+<div class="text-center"><h2>Bienvenue sur la page de modification d'une recette</h2></div></br>
+<div class="text-center"><h4>Vous avez sélectionné la recette : <span style="color :red">{{nom.title}}</sapn></h4></div></br>
+{{ form_start(formRecipe)}}
+<div class="row">
+    <div class="col">{{ form_row(formRecipe.title)}}</div>
+    <div class="col"> {{ form_row(formRecipe.slug)}}</div>
+ </div></br>
+ <div class="row">
+    <div class="col">{{ form_row(formRecipe.createdAt)}}</div>
+    <div class="col"> {{ form_row(formRecipe.updatedAt)}}</div>
+ </div></br>
+ <div class="row">
+    <div class="col">{{ form_row(formRecipe.contents)}}</div>
+    <div class="col"> {{ form_row(formRecipe.duration)}}</div>
+ </div></br>
+ <div class="row">
+    <div class="col text-center">  {{ form_row(formRecipe.save)}}
+
+ </div>
+{{ form_end(formRecipe)}}
+
+{% endblock %}

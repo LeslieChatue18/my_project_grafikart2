@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title%} PAGES  {% endblock %}
+{% block body%}
+{% include "home_recipe/template.html.twig" %}
+</br>
+<h1 class="text-center">Bienvenue sur la page des recettes </h1></br>
+<h2 class="text-bg-primary  text-center" >{{recette_une.title }}</h2></br>
+<div class="mx-auto p-2 badge text-bg-primary text-wrap" style="width: 25rem;">
+    Temps de préparation =<strong>{{recette_une.duration}} min</strong>
+  </div></br></br>
+<div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">{{recette_une.contents }}</div>
+<h4 class="text-center"> Bonne dégustation.....</h4>
+{% endblock %}

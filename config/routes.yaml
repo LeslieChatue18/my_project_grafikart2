@@ -1,0 +1,15 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+
+accueil: #Nom de la route
+    path: /accueil #Chemin de l'url
+    controller: App\Controller\HomeController::index2 #Nom du lien 
+    methods: ['GET' , 'POST']
+
+redirect: #Nom de la route
+    path: /redirect #Chemin de l'url
+    controller: App\Controller\HomeController::redirectToAnotherPages #Nom du lien 

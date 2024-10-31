@@ -1,0 +1,29 @@
+ {% extends "base.html.twig" %}
+
+ {% block title%} Page d'enregistrement d'une recette  {% endblock %}
+ {% block body %}
+  {% include 'home_recipe/template.html.twig' %}
+ 
+ <h3 class="text-center">Bonjour et bienvenue sur la page des enregistrements d'une recette</h3></br>
+ <h4 class="text-center">Merci de renseigner tous les champs </h4></br>
+
+
+ {{ form_start(form)}}
+ <div class="row">
+    <div class="col">{{ form_row(form.title)}}</div>
+    <div class="col"> {{ form_row(form.slug)}}</div>
+ </div></br>
+ <div class="row">
+    <div class="col">{{ form_row(form.createdAt)}}</div>
+    <div class="col"> {{ form_row(form.updatedAt)}}</div>
+ </div></br>
+ <div class="row">
+    <div class="col">{{ form_row(form.contents)}}</div>
+    <div class="col"> {{ form_row(form.duration)}}</div>
+ </div></br>
+ <div class="row">
+    <div class="col text-center">  {{ form_row(form.save)}}
+
+ </div>
+ {{ form_end(form)}}
+ {% endblock %}
