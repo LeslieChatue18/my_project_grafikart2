@@ -1,6 +1,6 @@
 {
     "controllers": {
-        "@symfony/ux-turbo": {
+        "@hotwired/turbo": {
             "turbo-core": {
                 "enabled": true,
                 "fetch": "eager"
