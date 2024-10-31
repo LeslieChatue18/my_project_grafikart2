@@ -1,7 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
-const path = require('path'); // Ajoute `path` pour que l'alias fonctionne
+const path = require('path');
 
-// Configure l'environnement runtime si nécessaire
 if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
@@ -11,8 +10,8 @@ Encore
     .setPublicPath('/build')
     .addEntry('app', './assets/app.js')
     .splitEntryChunks()
+    .enableStimulusBridge('./assets/controllers.json')
     .enableSingleRuntimeChunk()
-    .enableStimulusBridge('./assets/controllers.json') // Garde cette ligne pour utiliser Stimulus
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
@@ -22,7 +21,7 @@ Encore
         config.corejs = '3.23';
     });
 
-// Crée la configuration Webpack et ajoute l'alias
+// Ajoutez cet alias pour éviter l'erreur de stimulus-bridge
 const config = Encore.getWebpackConfig();
 config.resolve.alias['@symfony/stimulus-bridge/controllers.json'] = path.resolve(__dirname, 'assets/controllers.json');
 
